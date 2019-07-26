@@ -6,8 +6,8 @@ from django.db import models
 
 
 class UserData(AbstractUser):
-    password = models.CharField(verbose_name='Password', max_length=16,
-                                validators=[RegexValidator('^/W+/w+/d+{3}([$-/:-?{-~!"^_`\\[\\]]{2})', message=
+    password = models.CharField(verbose_name='Password', max_length=255,
+                                validators=[RegexValidator(r'^[\W{2}\w+\d{3}.@+-]+$', message=
                                                            'Password Must start with two(2)'
                                                            'Capital Letters,Contain at least three(3) '
                                                            'Numbers and contain at least '
